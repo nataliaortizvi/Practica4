@@ -24,9 +24,9 @@
         android:id="@+id/fondoTexto"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="30dp"
         android:background="#D1E2EC"
         app:layout_constraintBottom_toTopOf="@+id/btBack"
@@ -34,5 +34,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/validar"
+            android:layout_width="0dp"
+            android:layout_height="439dp"
+            android:layout_marginTop="50dp"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
