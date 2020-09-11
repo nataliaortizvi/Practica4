@@ -16,7 +16,7 @@ import java.net.UnknownHostException;
 public class pantallaping extends AppCompatActivity {
 
     private Button btBack;
-    private TextView confirmacion, confirmacion2, confirmacion3, confirmacion4;
+    private TextView confirmacion;
     private boolean conectado;
     private int maximo;
 
@@ -27,9 +27,6 @@ public class pantallaping extends AppCompatActivity {
 
         btBack = findViewById(R.id.btBack);
         confirmacion = findViewById(R.id.confirmacion);
-        confirmacion2 = findViewById(R.id.confirmacion2);
-        confirmacion3 = findViewById(R.id.confirmacion3);
-        confirmacion4 = findViewById(R.id.confirmacion4);
 
         //para que solo muestre 4 veces el Recibido o el Perdido
         maximo = 0;
