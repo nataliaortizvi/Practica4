@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case(R.id.btPing):
 
+                //para traer lo que se escriba en la pantalla de la ip
                 c1 = tx1.getText().toString();
                 c2 = tx2.getText().toString();
                 c3 = tx3.getText().toString();

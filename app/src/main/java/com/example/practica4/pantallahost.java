@@ -35,20 +35,21 @@ public class pantallahost extends AppCompatActivity {
                     while(campo4 < 255){
 
                         try {
-
+                            //comprobacion y barrido de todas las id cambiando el ultimo digito
                             ipLocal = "192.168.2."+campo4;
 
                             InetAddress inetAddress = InetAddress.getByName(ipLocal);
                             String yoyo = inetAddress.getHostAddress();
                             Log.d("myHost",""+yoyo);
 
-                            conectado = inetAddress.isReachable(10);
+                            conectado = inetAddress.isReachable(500);
                             if(conectado == true){
                                 validar.append(""+ipLocal+"\n");
                             }else{
                                //no hay
                             }
 
+                            //para ir aumentando la cuarta variable del ip
                             campo4 ++;
                             Log.d("conectadoooooo",""+conectado);
                             Log.d("campoooooooo",""+campo4);
@@ -68,6 +69,7 @@ public class pantallahost extends AppCompatActivity {
 
         btBack.setOnClickListener(
                 (view) -> {
+                    //para parar el hilo
                     campo4 = 255;
                     Intent i = new Intent(this, MainActivity.class);
                     startActivity(i);

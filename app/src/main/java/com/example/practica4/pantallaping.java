@@ -31,6 +31,7 @@ public class pantallaping extends AppCompatActivity {
         confirmacion3 = findViewById(R.id.confirmacion3);
         confirmacion4 = findViewById(R.id.confirmacion4);
 
+        //para que solo muestre 4 veces el Recibido o el Perdido
         maximo = 0;
 
         String lasIp = getIntent().getExtras().getString("lasIp");
@@ -39,6 +40,7 @@ public class pantallaping extends AppCompatActivity {
                 () -> {
                     while(maximo < 4){
                         try {
+                            //comprobacion de conexion
                             maximo ++;
                             InetAddress inetAddress = InetAddress.getByName(lasIp);
                             String ipEscrita = inetAddress.getHostAddress();
@@ -47,6 +49,7 @@ public class pantallaping extends AppCompatActivity {
                             conectado = inetAddress.isReachable(500);
                             Log.d("conectado",""+ conectado);
 
+                            //cambio visual en el textview
                             runOnUiThread(
                                     ()->{
                                         if(conectado == true){
@@ -76,6 +79,7 @@ public class pantallaping extends AppCompatActivity {
         btBack.setOnClickListener(
                 (view) -> {
                     Intent i = new Intent(this, MainActivity.class);
+                    //parar el hilo
                     maximo = 5;
                     startActivity(i);
                     overridePendingTransition(R.anim.entrada2, R.anim.salida2);
