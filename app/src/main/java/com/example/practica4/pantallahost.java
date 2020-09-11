@@ -17,8 +17,9 @@ public class pantallahost extends AppCompatActivity {
 
     private Button btBack;
     private TextView validar;
-    private int campo4 = 0;
+    private int campo4 = 1;
     private String ipLocal;
+    private Boolean conectado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,6 @@ public class pantallahost extends AppCompatActivity {
 
         new Thread(
                 () -> {
-
                     while(campo4 < 255){
 
                         try {
@@ -42,25 +42,21 @@ public class pantallahost extends AppCompatActivity {
                             String yoyo = inetAddress.getHostAddress();
                             Log.d("myHost",""+yoyo);
 
-                            boolean conectado = inetAddress.isReachable(500);
+                            conectado = inetAddress.isReachable(10);
                             if(conectado == true){
-                                validar.setText(""+ipLocal+"\n");
+                                validar.append(""+ipLocal+"\n");
                             }else{
-                                validar.setText("No hay \n");
+                               //no hay
                             }
 
-
                             campo4 ++;
+                            Log.d("conectadoooooo",""+conectado);
                             Log.d("campoooooooo",""+campo4);
-                            Thread.sleep(500);
-
 
 
                         } catch (UnknownHostException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
@@ -72,6 +68,7 @@ public class pantallahost extends AppCompatActivity {
 
         btBack.setOnClickListener(
                 (view) -> {
+                    campo4 = 255;
                     Intent i = new Intent(this, MainActivity.class);
                     startActivity(i);
                     overridePendingTransition(R.anim.entrada2, R.anim.salida2);
