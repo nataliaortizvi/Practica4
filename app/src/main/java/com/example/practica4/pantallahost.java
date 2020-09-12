@@ -43,11 +43,20 @@ public class pantallahost extends AppCompatActivity {
                             Log.d("myHost",""+yoyo);
 
                             conectado = inetAddress.isReachable(500);
-                            if(conectado == true){
-                                validar.append(""+ipLocal+"\n");
-                            }else{
-                               //no hay
-                            }
+
+                            //cambio visual en el textview
+                            runOnUiThread(
+                                    ()->{
+                                        if(conectado == true){
+                                            validar.append(""+ipLocal+"\n");
+                                        }else{
+                                            //no hay
+                                        }
+
+                                    }
+                            );
+
+
 
                             //para ir aumentando la cuarta variable del ip
                             campo4 ++;
